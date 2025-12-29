@@ -1,0 +1,5 @@
+
+drf-yasg
+
+python-docx
+openai

@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure-^=6-_k)oh!n9-fpcd1qd0rf(!8y2!!8cc*so1if(!*ydv@*_dc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Este es el ID de la extensión que creamos antes. La extensión se recarga
+# cada vez que se reinicia el espacio de trabajo, por lo que este ID debería ser estable.
+CHROME_EXTENSION_ID = "lgjajafgpfhifhegefplohkaolpfcoik"
+
 ALLOWED_HOSTS = []
 
 
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     'job_postings',
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -54,10 +59,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:3000",
+#     f"chrome-extension://{CHROME_EXTENSION_ID}",
+# ]
+
+CORS_ALLOW_ALL_ORIGINS=True
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_EXPOSE_HEADERS = ['Location']
 
 ROOT_URLCONF = 'mysite.urls'
 

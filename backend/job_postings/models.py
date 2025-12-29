@@ -29,6 +29,11 @@ class JobOffer(models.Model):
     published_date = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    # LLM Analysis Fields
+    summary = models.TextField(blank=True, null=True, help_text="AI-generated summary of the job offer.")
+    match_score = models.IntegerField(blank=True, null=True, help_text="AI-generated score of how well the user's profile matches the offer.")
+    missing_skills = models.TextField(blank=True, null=True, help_text="AI-identified skills that the user is missing for this role.")
+
     def __str__(self):
         return f"{self.title} at {self.company}"
 

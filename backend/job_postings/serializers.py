@@ -1,46 +1,22 @@
-
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import UserProfile, JobOffer, Application, ResumeTemplate
-
-class UserProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserProfile
-        fields = ('professional_summary',)
-
-class UserSerializer(serializers.ModelSerializer):
-    profile = UserProfileSerializer()
-
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'profile')
+from .models import JobOffer, Application
 
 class JobOfferSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the JobOffer model.
+    """
     class Meta:
         model = JobOffer
-        fields = '__all__'
+        fields = ('id', 'title', 'company', 'original_url', 'description', 'salary', 'published_date')
+        read_only_fields = ('id',)
 
 class ApplicationSerializer(serializers.ModelSerializer):
-    # Make job_offer writeable by id, but readable as a nested object
+    """
+    Serializer for the Application model.
+    """
     job_offer = JobOfferSerializer(read_only=True)
-    job_offer_id = serializers.UUIDField(write_only=True)
 
     class Meta:
         model = Application
-        fields = ('id', 'job_offer', 'job_offer_id', 'status', 'application_date', 'notes')
-
-    def create(self, validated_data):
-        # Associate the application with the current user
-        validated_data['user'] = self.context['request'].user
-        return super().create(validated_data)
-
-class ResumeTemplateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ResumeTemplate
-        fields = '__all__'
-        read_only_fields = ('user',)
-
-    def create(self, validated_data):
-        # Associate the template with the current user
-        validated_data['user'] = self.context['request'].user
-        return super().create(validated_data)
+        fields = ('id', 'job_offer', 'status', 'application_date', 'notes')
+        read_only_fields = ('id', 'application_date')
