@@ -46,7 +46,7 @@ function App() {
           };
 
           // 3. Enviar los datos al backend de Django
-          fetch('http://127.0.0.1:8000/api/job-offers/', {
+          fetch('http://127.0.0.1:8000/api/job_postings/analyze/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
