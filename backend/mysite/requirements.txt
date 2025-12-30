@@ -3,3 +3,4 @@ drf-yasg
 
 python-docx
 openai
+django-cors-headers
