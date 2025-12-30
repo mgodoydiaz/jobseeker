@@ -1,37 +1,4 @@
-# Entornos virtuales de Python
-.venv/
-env/
-venv/
 
-# Archivos de caché de Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Bases de datos locales
-db.sqlite3
-db.sqlite3-journal
-
-# Archivos de configuración de IDE
-.vscode/
-.idea/
-
-# Archivos de dependencias de pip
-pip-wheel-metadata/
-
-# Archivos de log
-*.log
-
-# Archivos de Docker
-# (Opcional, si tienes archivos docker-compose.override.yml que no quieres versionar)
-# docker-compose.override.yml
-
-# Archivos de construcción y distribución
-build/
-dist/
-*.egg-info/
-
-# Informes de tests
-.coverage
-htmlcov/
+# Node.js / Frontend
+frontend/node_modules/
+frontend/dist/
