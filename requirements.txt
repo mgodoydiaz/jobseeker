@@ -1,0 +1,41 @@
+# requirements.txt
+# Dependencias del proyecto
+# Lista de paquetes Python necesarios para el funcionamiento del proyecto
+
+# Framework web
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# Base de datos
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+psycopg2-binary>=2.9.0  # PostgreSQL adapter
+
+# Scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+selenium>=4.15.0
+scrapy>=2.11.0
+
+# Validación y serialización
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Autenticación y seguridad
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+python-multipart>=0.0.6
+
+# Utilidades
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+httpx>=0.25.0
+
+# Logging y monitoreo
+loguru>=0.7.0
+
+# Procesamiento de datos
+pandas>=2.1.0
