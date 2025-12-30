@@ -1,47 +1,52 @@
 .App {
-  text-align: center;
+  display: flex;
+  font-family: sans-serif;
 }
 
-.form-group {
-  margin-bottom: 1rem;
-  text-align: left;
+.sidebar {
+  width: 250px;
+  background-color: var(--color-primary);
+  color: var(--color-quaternary);
+  height: 100vh;
+  padding: 20px;
 }
 
-.form-group label {
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li a {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+  padding: 10px;
+  color: var(--color-quaternary);
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+.sidebar li a:hover {
+  background-color: var(--color-secondary);
 }
 
-.btn-save {
-  background-color: #007bff;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.btn-save:hover {
-  background-color: #0056b3;
-}
-
-.status-message {
-  margin-top: 1rem;
-  color: green;
-  font-weight: bold;
-}
-
-.status-message.error {
-  color: red;
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: var(--color-quaternary);
 }
