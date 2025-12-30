@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -8,14 +8,16 @@ function App() {
 
   useEffect(() => {
     // Obtener la información de la pestaña activa cuando el popup se carga
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (tabs[0]) {
-        setTabInfo({
-          url: tabs[0].url || '',
-          title: tabs[0].title || '',
+    if (chrome && chrome.tabs) {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs[0]) {
+                setTabInfo({
+                    url: tabs[0].url || '',
+                    title: tabs[0].title || '',
+                });
+            }
         });
-      }
-    });
+    }
   }, []);
 
   const handleSaveOffer = () => {

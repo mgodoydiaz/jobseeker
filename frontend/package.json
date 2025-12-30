@@ -1,4 +1,3 @@
-
 {
   "name": "job-seeker-extension",
   "private": true,
@@ -11,7 +10,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.11.0"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.254",
