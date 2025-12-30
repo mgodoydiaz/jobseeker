@@ -13,14 +13,14 @@ services:
       # Monta el código del backend para que los cambios en el código local se reflejen en el contenedor
       - ./backend:/app
       # Crea un volumen para la base de datos SQLite para que los datos persistan
-      - sqlite_data:/app/db
+      - sqlite_data:/app/db/
     ports:
       # Mapea el puerto 8000 del contenedor al puerto 8000 del host
       - "8000:8000"
-    environment:
-      # Aquí se pueden añadir variables de entorno, como las claves de API
-      # - OPENAI_API_KEY=tu_clave_secreta
-      # - DJANGO_SECRET_KEY=tu_clave_secreta_de_django
+    # La sección 'environment' se elimina porque no contenía variables activas.
+    # Se puede volver a añadir cuando sea necesario de la siguiente forma:
+    # environment:
+    #   DJANGO_SECRET_KEY: 'tu-clave-aqui'
     restart: unless-stopped
     # En una configuración de producción, se podría añadir una dependencia a un servicio de base de datos:
     # depends_on:
@@ -41,10 +41,9 @@ services:
   #   restart: unless-stopped
 
 # --- Volúmenes con nombre para la persistencia de datos ---
-vols:
+volumes:
   # Volumen para la base de datos de PostgreSQL (si se usara)
-  # postgres_data:
+  # postgres_data: {}
 
   # Volumen para la base de datos SQLite
-  sqlite_data:
-
+  sqlite_data: {}
