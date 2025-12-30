@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './assets/css/App.css';
 import './assets/css/colors.css';
 import logo from './assets/images/logo.png';
-import Home from './views/Home/Home';
 import Lista1 from './views/Lista1/Lista1';
 import Lista2 from './views/Lista2/Lista2';
 import Configuracion from './views/Configuracion/Configuracion';
@@ -36,8 +35,13 @@ const App: React.FC = () => {
           </button>
         </nav>
         <main className="main-content">
+          <div className="home-container">
+            <h1 className="home-title">JobSeeker</h1>
+            <p className="home-description">
+              Bienvenido a JobSeeker, tu asistente personal para la búsqueda de empleo. Organiza, analiza y optimiza tus postulaciones en un solo lugar.
+            </p>
+          </div>
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route path="/lista1" element={<Lista1 />} />
             <Route path="/lista2" element={<Lista2 />} />
             <Route path="/configuracion" element={<Configuracion />} />

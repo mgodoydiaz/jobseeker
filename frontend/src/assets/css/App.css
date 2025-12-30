@@ -109,3 +109,29 @@
 .App.sidebar-collapsed .sidebar-toggle {
   transform: translateX(-50%) rotate(180deg);
 }
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.home-title {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--color-primary); /* Dark color for light background */
+  text-shadow: 1px 1px 3px var(--color-tertiary); /* Subtle shadow */
+  margin: 0;
+}
+
+.home-description {
+  font-size: 1.25rem;
+  color: var(--color-secondary);
+  max-width: 600px;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
