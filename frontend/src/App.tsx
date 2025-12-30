@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import './colors.css';
-import Home from './pages/Home';
-import Lista1 from './pages/Lista1';
-import Lista2 from './pages/Lista2';
-import Configuracion from './pages/Configuracion';
-import Ofertas from './pages/Ofertas';
+import './assets/css/App.css';
+import './assets/css/colors.css';
+import logo from './assets/images/logo.png';
+import Home from './views/Home/Home';
+import Lista1 from './views/Lista1/Lista1';
+import Lista2 from './views/Lista2/Lista2';
+import Configuracion from './views/Configuracion/Configuracion';
+import Ofertas from './views/Ofertas/Ofertas';
 
 const App: React.FC = () => {
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -20,7 +21,7 @@ const App: React.FC = () => {
       <div className={`App ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
         <nav className="sidebar">
           <div className="logo-container">
-            <img src="/logo.png" alt="JobSeeker Logo" className="logo" />
+            <img src={logo} alt="JobSeeker Logo" className="logo" />
             {!isSidebarCollapsed && <span className="logo-text">JobSeeker</span>}
           </div>
           <ul>
