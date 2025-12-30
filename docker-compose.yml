@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # --- Servicio del Backend (Django) ---
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jobseeker-backend
+    # El comando por defecto ya está en el Dockerfile, pero se puede sobrescribir aquí si es necesario.
+    # command: gunicorn mysite.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      # Monta el código del backend para que los cambios en el código local se reflejen en el contenedor
+      - ./backend:/app
+      # Crea un volumen para la base de datos SQLite para que los datos persistan
+      - sqlite_data:/app/db
+    ports:
+      # Mapea el puerto 8000 del contenedor al puerto 8000 del host
+      - "8000:8000"
+    environment:
+      # Aquí se pueden añadir variables de entorno, como las claves de API
+      # - OPENAI_API_KEY=tu_clave_secreta
+      # - DJANGO_SECRET_KEY=tu_clave_secreta_de_django
+    restart: unless-stopped
+    # En una configuración de producción, se podría añadir una dependencia a un servicio de base de datos:
+    # depends_on:
+    #   - db
+
+  # --- Servicio de Base de Datos (Ejemplo con PostgreSQL, comentado) ---
+  # db:
+  #   image: postgres:13-alpine
+  #   container_name: jobseeker-db
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_DB=jobseeker
+  #     - POSTGRES_USER=user
+  #     - POSTGRES_PASSWORD=password
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+
+# --- Volúmenes con nombre para la persistencia de datos ---
+vols:
+  # Volumen para la base de datos de PostgreSQL (si se usara)
+  # postgres_data:
+
+  # Volumen para la base de datos SQLite
+  sqlite_data:
+

@@ -1,0 +1,18 @@
+# Ignorar el entorno virtual
+.venv/
+
+# Ignorar la caché de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar la base de datos SQLite local (será manejada por un volumen de Docker)
+db.sqlite3
+db.sqlite3-journal
+
+# Ignorar archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Ignorar logs locales
+*.log
