@@ -9,6 +9,33 @@
   color: var(--color-quaternary);
   height: 100vh;
   padding: 20px;
+  position: relative;
+  transition: width 0.3s ease;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.App.sidebar-collapsed .sidebar {
+  width: 80px;
+}
+
+.App.sidebar-collapsed .logo-container {
+  justify-content: center;
+}
+
+.App.sidebar-collapsed .logo {
+  margin-right: 0;
+}
+
+.App.sidebar-collapsed .logo-text {
+  display: none;
+}
+
+.App.sidebar-collapsed .sidebar li a span {
+  display: none;
+}
+
+.App.sidebar-collapsed .sidebar li a {
+  justify-content: center;
 }
 
 .logo-container {
@@ -21,11 +48,13 @@
   width: 50px;
   height: 50px;
   margin-right: 10px;
+  transition: margin 0.3s ease;
 }
 
 .logo-text {
   font-size: 1.5rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .sidebar ul {
@@ -34,7 +63,8 @@
 }
 
 .sidebar li a {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 10px;
   color: var(--color-quaternary);
   text-decoration: none;
@@ -45,8 +75,37 @@
   background-color: var(--color-secondary);
 }
 
+.sidebar li a span {
+  white-space: nowrap;
+}
+
 .main-content {
   flex-grow: 1;
   padding: 20px;
   background-color: var(--color-quaternary);
+  overflow-y: auto;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-secondary);
+  color: var(--color-quaternary);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.App.sidebar-collapsed .sidebar-toggle {
+  transform: translateX(-50%) rotate(180deg);
 }

@@ -1,28 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import './colors.css';
+import Home from './pages/Home';
 import Lista1 from './pages/Lista1';
 import Lista2 from './pages/Lista2';
 import Configuracion from './pages/Configuracion';
 import Ofertas from './pages/Ofertas';
-import Home from './pages/Home';
-import './colors.css';
-import './App.css';
 
 const App: React.FC = () => {
+  const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!isSidebarCollapsed);
+  };
+
   return (
     <Router>
-      <div className="App">
+      <div className={`App ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
         <nav className="sidebar">
           <div className="logo-container">
             <img src="/logo.png" alt="JobSeeker Logo" className="logo" />
-            <span className="logo-text">JobSeeker</span>
+            {!isSidebarCollapsed && <span className="logo-text">JobSeeker</span>}
           </div>
           <ul>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/lista1">Lista 1</Link></li>
             <li><Link to="/lista2">Lista 2</Link></li>
             <li><Link to="/configuracion">Configuración</Link></li>
             <li><Link to="/ofertas">Ofertas</Link></li>
           </ul>
+          <button onClick={toggleSidebar} className="sidebar-toggle">
+            {isSidebarCollapsed ? '→' : '←'}
+          </button>
         </nav>
         <main className="main-content">
           <Routes>
