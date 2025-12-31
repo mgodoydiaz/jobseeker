@@ -13,14 +13,14 @@ body {
 .layout-container {
     display: flex;
     height: 100vh;
-    background-color: #f4f4f9; /* Ghost White */
+    background-color: var(--ghost-white);
 }
 
 
 /* --- Sidebar --- */
 .sidebar {
-    background-color: #2f4550; /* Charcoal Blue */
-    color: #f4f4f9; /* Ghost White */
+    background-color: var(--charcoal-blue);
+    color: var(--ghost-white);
     overflow-x: hidden;
     transition: width 0.3s ease-in-out;
     display: flex;
@@ -40,7 +40,7 @@ body {
 
 .sidebar nav a {
     display: block;
-    color: #b8dbd9; /* Light Blue */
+    color: var(--light-blue);
     text-decoration: none;
     padding: 15px 30px;
     white-space: nowrap; /* No line breaks */
@@ -48,7 +48,7 @@ body {
 }
 
 .sidebar nav a:hover {
-    background-color: #586f7c; /* Blue Slate */
+    background-color: var(--blue-slate);
     color: white;
 }
 
@@ -56,25 +56,25 @@ body {
 .main-content {
     flex-grow: 1;
     padding: 25px;
-    background-color: #f4f4f9; /* Ghost White */
+    background-color: var(--ghost-white);
     position: relative;
     transition: margin-left 0.3s ease-in-out;
 }
 
 .main-content h1 {
-    color: #2f4550; /* Charcoal Blue */
+    color: var(--charcoal-blue);
     margin-bottom: 1rem;
 }
 
 .main-content p {
-    color: #586f7c; /* Blue Slate */
+    color: var(--blue-slate);
     font-size: 1.1rem;
 }
 
 
 /* --- Toggle Button --- */
 .toggle-btn {
-    background-color: #586f7c; /* Blue Slate */
+    background-color: var(--blue-slate);
     color: white;
     border: none;
     border-radius: 50%;
@@ -93,7 +93,7 @@ body {
 }
 
 .toggle-btn:hover {
-    background-color: #2f4550; /* Charcoal Blue */
+    background-color: var(--charcoal-blue);
 }
 
 /* --- Responsive (optional but good practice) --- */
