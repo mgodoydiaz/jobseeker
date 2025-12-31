@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from job_postings.views import IndexView
+from job_postings.views import ApiDocsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
+    path('', ApiDocsView.as_view(), name='api_docs'),
 ]

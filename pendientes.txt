@@ -1,3 +1,0 @@
-## Tareas Pendientes
-
-- [ ] **Configuración de CORS para Producción:** En `backend/mysite/settings.py`, se ha utilizado `CORS_ALLOW_ALL_ORIGINS=True` para facilitar el desarrollo. Antes de pasar a producción, es crucial cambiar esta configuración por una más segura. Se debe reemplazar con `CORS_ALLOWED_ORIGINS` y añadir la URL del frontend y el ID de la extensión de Chrome (`chrome-extension://<ID_DE_LA_EXTENSION>`).

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation - Job Seeker Assistant</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .api-endpoint {
+      background-color: #eef;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .api-endpoint .method {
+      font-weight: bold;
+      color: #007bff;
+    }
+    .api-endpoint .path {
+      font-family: monospace;
+      background-color: #ddd;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>API Documentation</h1>
+    <p>Welcome to the Job Seeker Assistant API. Here you will find the available endpoints to interact with the service.</p>
+
+    <div class="api-endpoint">
+      <span class="method">POST</span>
+      <span class="path">/api/job_postings/analyze/</span>
+      <p>Analyzes a job offer from a given URL. This endpoint scrapes the job description, compares it with a user's CV, and returns a match score and a list of missing skills.</p>
+      <strong>Body:</strong>
+      <pre><code>{
+  "url": "<URL of the job offer>"
+}</code></pre>
+    </div>
+
+    <h2>Future Endpoints</h2>
+    <p>The following endpoints are planned for future development:</p>
+
+    <div class="api-endpoint">
+      <span class="method">GET</span>
+      <span class="path">/api/job_postings/</span>
+      <p>Returns a list of all saved job offers for the authenticated user.</p>
+    </div>
+
+    <div class="api-endpoint">
+      <span class="method">POST</span>
+      <span class="path">/api/job_postings/</span>
+      <p>Saves a new job offer for the authenticated user.</p>
+    </div>
+
+    <div class="api-endpoint">
+      <span class="method">GET</span>
+      <span class="path">/api/job_postings/&lt;id&gt;/</span>
+      <p>Returns the details of a specific job offer.</p>
+    </div>
+
+    <div class="api-endpoint">
+      <span class="method">PUT/PATCH</span>
+      <span class="path">/api/job_postings/&lt;id&gt;/</span>
+      <p>Updates a specific job offer.</p>
+    </div>
+
+    <div class="api-endpoint">
+      <span class="method">DELETE</span>
+      <span class="path">/api/job_postings/&lt;id&gt;/</span>
+      <p>Deletes a specific job offer.</p>
+    </div>
+
+  </div>
+</body>
+</html>
