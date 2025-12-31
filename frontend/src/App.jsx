@@ -14,11 +14,11 @@ export default function App() {
         </nav>
       </aside>
 
+      <div onClick={() => setIsOpen(!isOpen)} className="sidebar-toggle">
+        <span className="arrow">{isOpen ? '◀' : '▶'}</span>
+      </div>
+
       <main className="main-content">
-        <button onClick={() => setIsOpen(!isOpen)} className="toggle-btn">
-          {isOpen ? '◀' : '▶'}
-        </button>
-        
         {/* Contenido que querías ver */}
         <div className="page-content">
           <h1>Job Seeker Assistant</h1>
@@ -26,8 +26,6 @@ export default function App() {
             Job Seeker Assistant es una herramienta diseñada para simplificar y organizar la búsqueda de empleo. Permite a los usuarios guardar, gestionar y analizar ofertas de trabajo de manera eficiente.
           </p>
           <hr />
-          <h2>Bienvenido Miguel</h2>
-          <p>Aquí cargarías tus tablas o gráficos de Python/Data.</p>
         </div>
 
       </main>
