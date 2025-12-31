@@ -1,23 +1,10 @@
 import { useState } from 'react';
-
+import Layout from './components/Layout';
 export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="layout-container">
-      <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-        <h3>Jobseeker</h3>
-        <nav>
-            <a href="#">📊 Dashboard</a>
-            <a href="#">🔍 My Jobs</a>
-            <a href="#">⚙️ Settings</a>
-        </nav>
-      </aside>
-
-      <div onClick={() => setIsOpen(!isOpen)} className="sidebar-toggle">
-        <span className="arrow">{isOpen ? '◀' : '▶'}</span>
-      </div>
-
+    <Layout>
       <main className="main-content">
         {/* Contenido que querías ver */}
         <div className="page-content">
@@ -29,6 +16,7 @@ export default function App() {
         </div>
 
       </main>
-    </div>
+
+    </Layout>
   );
 }
