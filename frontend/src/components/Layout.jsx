@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -8,7 +9,7 @@ export default function Layout({ children }) {
       <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
         <h3>Jobseeker</h3>
         <nav>
-          <a href="./components/Dashboard">📊 Dashboard</a>
+          <Link to="/dashboard">📊 Dashboard</Link>
           <a href="#">🔍 My Jobs</a>
           <a href="#">⚙️ Settings</a>
         </nav>
